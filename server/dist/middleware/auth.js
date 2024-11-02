@@ -1,3 +1,16 @@
+import jwt from 'jsonwebtoken';
 export const authenticateToken = (req, res, next) => {
-    // TODO: verify the token exists and add the user data to the request object
+    const token = req.headers['authorization']?.split(' ')[1]; // Get token from the Authorization header
+    if (!token) {
+        res.sendStatus(401); // Unauthorized if token is not present
+        return; // Ensure to exit the function here
+    }
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+        if (err) {
+            res.sendStatus(403); // Forbidden if token is invalid
+            return; // Ensure to exit the function here
+        }
+        req.user = user; // Attach the user payload to the request object
+        next(); // Call the next middleware or route handler
+    });
 };
