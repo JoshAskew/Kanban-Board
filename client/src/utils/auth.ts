@@ -34,12 +34,12 @@ class AuthService {
 
   getToken(): string | null {
     // TODO: return the token
-    return localStorage.getItem('token') || ''; // Retrieve the token from localStorage
+    return localStorage.getItem('id_token') || ''; // Retrieve the token from localStorage
   }
 
   // TODO: set the token to localStorage
   login(idToken: string) { 
-    localStorage.setItem('token', idToken); // Save the token to localStorage
+    localStorage.setItem('id_token', idToken); // Save the token to localStorage
 
     // TODO: redirect to the home page
     window.location.assign('/'); // Redirect to the home page
@@ -47,10 +47,10 @@ class AuthService {
 
   logout() {
     // TODO: remove the token from localStorage
-    localStorage.removeItem('token'); // Remove the token from localStorage
+    localStorage.removeItem('id_token'); // Remove the token from localStorage
 
     // TODO: redirect to the login page
-    window.location.assign('./pages/login'); // Redirect to the login page
+    window.location.assign('/'); // Redirect to the login page
   }
 }
 
