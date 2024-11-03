@@ -1,8 +1,6 @@
 import { JwtPayload, jwtDecode } from 'jwt-decode';
 
 
-
-
 class AuthService {
   getProfile() {
     // TODO: return the decoded token
@@ -13,28 +11,35 @@ class AuthService {
     return null; // Return null if there is no token
   }
   
-
   loggedIn() {
     // TODO: return a value that indicates if the user is logged in
-    return !!this.getToken(); // Returns true if a token exists, indicating the user is logged in 
+    const token = this.getToken();
+    return token;
   }
   
   isTokenExpired(token: string) {
     // TODO: return a value that indicates if the token is expired
-    if (!token) return true; // Token is expired if it doesn't exist
+    
+     if (!token) return true; // Token is expired if it doesn't exist
 
+  try {
     const decoded: JwtPayload = jwtDecode(token);
     const currentTime = Date.now() / 1000; // Get current time in seconds
     return decoded.exp ? decoded.exp < currentTime : true; // Check expiration
+  } catch (error) {
+    console.error('Token decoding failed:', error);
+    return true; // Treat invalid tokens as expired
+  }
   }
 
   getToken(): string | null {
     // TODO: return the token
-    return localStorage.getItem('token'); // Retrieve the token from localStorage
+    return localStorage.getItem('token') || ''; // Retrieve the token from localStorage
   }
 
   // TODO: set the token to localStorage
-  login(idToken: string) { localStorage.setItem('token', idToken); // Save the token to localStorage
+  login(idToken: string) { 
+    localStorage.setItem('token', idToken); // Save the token to localStorage
 
     // TODO: redirect to the home page
     window.location.assign('/'); // Redirect to the home page

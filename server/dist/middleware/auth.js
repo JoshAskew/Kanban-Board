@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 export const authenticateToken = (req, res, next) => {
-    const token = req.headers['authorization']?.split(' ')[1]; // Get token from the Authorization header
+    const token = req.headers['authorization']; // Get token from the Authorization header
     if (!token) {
         res.sendStatus(401); // Unauthorized if token is not present
         return; // Ensure to exit the function here
