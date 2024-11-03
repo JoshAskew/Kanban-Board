@@ -5,7 +5,7 @@ export const authenticateToken = (req, res, next) => {
         res.sendStatus(401); // Unauthorized if token is not present
         return; // Ensure to exit the function here
     }
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {
         if (err) {
             res.sendStatus(403); // Forbidden if token is invalid
             return; // Ensure to exit the function here

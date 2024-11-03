@@ -22,7 +22,7 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
     return; // Ensure to exit the function here
   }
 
-  jwt.verify(token, process.env.JWT_SECRET as string, (err, user) => {
+  jwt.verify(token, process.env.JWT_SECRET_KEY as string, (err, user) => {
     if (err) {
       res.sendStatus(403); // Forbidden if token is invalid
       return; // Ensure to exit the function here
