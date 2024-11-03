@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 const SECRET_KEY = process.env.JWT_SECRET_KEY;
 export const login = async (req, res) => {
+    console.log('Login attempt:', req.body);
     // TODO: If the user exists and the password is correct, return a JWT token
     const { username, password } = req.body; // Get username and password from request body
     try {
@@ -16,7 +17,7 @@ export const login = async (req, res) => {
         return res.json({ token }); // Return the token as JSON
     }
     catch (error) {
-        return res.status(500).json({ message: error.message }); // Ensure an error response is returned
+        return res.status(500).json({ message: error.message });
     }
 };
 const router = Router();

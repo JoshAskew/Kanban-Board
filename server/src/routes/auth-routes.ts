@@ -6,6 +6,7 @@ import bcrypt from 'bcrypt';
 const SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 export const login = async (req: Request, res: Response) => {
+  console.log('Login attempt:', req.body);
   // TODO: If the user exists and the password is correct, return a JWT token
   const { username, password } = req.body; // Get username and password from request body
 
@@ -20,7 +21,7 @@ export const login = async (req: Request, res: Response) => {
     const token = jwt.sign({ username: user.username }, SECRET_KEY as string, { expiresIn: '1h' });
     return res.json({ token }); // Return the token as JSON
   } catch (error: any) {
-    return res.status(500).json({ message: error.message }); // Ensure an error response is returned
+    return res.status(500).json({ message: error.message });
   }
 };
 

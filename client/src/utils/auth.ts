@@ -16,7 +16,7 @@ class AuthService {
 
   loggedIn() {
     // TODO: return a value that indicates if the user is logged in
-    return !!this.getToken(); // Returns true if a token exists, indicating the user is logged in
+    return !!this.getToken(); // Returns true if a token exists, indicating the user is logged in 
   }
   
   isTokenExpired(token: string) {
