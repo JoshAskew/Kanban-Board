@@ -37,7 +37,7 @@ This Kanban board is a visual tool that helps teams manage tasks and workflows b
 This application is accessible in two ways:
 
 1. **Locally**: Clone the repository, install the necessary dependencies, and run the application from the command line.
-2. **Deployed Version**: Visit the live version of the application here: [Kanban Board]().
+2. **Deployed Version**: Visit the live version of the application here: [Kanban Board](https://kanban-board-o2jb.onrender.com/).
 
 
 **Here, you can see what the Landing Page looks like when you open the application:**

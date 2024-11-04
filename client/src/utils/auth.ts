@@ -1,6 +1,5 @@
 import { JwtPayload, jwtDecode } from 'jwt-decode';
 
-
 class AuthService {
   timeoutCallback: () => void;
 
@@ -56,7 +55,7 @@ class AuthService {
     localStorage.removeItem('id_token'); // Remove the token from localStorage
 
     // TODO: redirect to the login page
-    window.location.assign('/login'); // Redirect to the login page
+    window.location.assign('/'); // Redirect to the login page
   }
   autoLogout() {
     const token = this.getToken();
