@@ -28,11 +28,11 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #EBEBEB;
 }
 
 body {
-  background: #ECF0F1;
+  background: #323232;
   background-size: cover;
   background-repeat: no-repeat no-repeat;
   background-position: center center;
@@ -54,12 +54,11 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #EBEBEB
 }
 button:focus,
 button:focus-visible {
@@ -67,7 +66,7 @@ button:focus-visible {
 }
 
 main {
-  color: black;
+  color: #829CD0;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -105,7 +104,11 @@ tbody tr:nth-child(odd) {
 }
 
 .nav-title a {
-  color: #b864c4;
+  color:  #829CD0;
+}
+
+.nav-title a:hover {
+  color: #EBEBEB;
 }
 
 .nav-item {
@@ -141,31 +144,44 @@ tbody tr:nth-child(odd) {
   font-weight: 500;
   width: 33%;
   height: 90vh; 
+  overflow: scroll;
   border: 1px solid rgba(0, 0, 0, 0.2);
   margin: 5px;
   padding: 5px;
 }
 
 .todo {
-  background-color: #e9cbec;
+  background-color: #829CD0;
+}
+
+.todo h2 {
+  color: #EBEBEB;
 }
 
 .inprogress {
-  background-color: #b864c4;
+  background-color: #20368F;
+}
+
+.inprogress h2 {
+  color: #EBEBEB;
+}
+
+.done h2 {
+  color: #EBEBEB;
 }
 
 .done {
-  background-color: #732381;
+  background-color: #000B4F;
 }
 
 .ticket-card {
   text-align: left;
-  background-color: #fff;
+  background-color: #EBEBEB;
+  color: #000B4F;
   padding: 15px;
   margin-bottom: 10px;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 0.1em solid black;
 }
 
 .container {
@@ -183,7 +199,7 @@ tbody tr:nth-child(odd) {
 .form {
   width: 60%;
   height: 80%;
-  background-color: #b864c4;
+  background-color: #20368F;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -192,7 +208,7 @@ tbody tr:nth-child(odd) {
 }
 
 .form > h1, .form > label {
-  color: yellow;
+  color: #829CD0;
 }
 
 .form > input {
@@ -216,23 +232,29 @@ tbody tr:nth-child(odd) {
 }
 
 .editBtn {
-  background-color: #f9f9f9;
+  background-color: #6D6D6D;
+  color: #EBEBEB;
   border-radius: 8px;
-  border: 1px solid transparent;
   padding: 0.6em 1.2em;
   cursor: pointer;
-  transition: border-color 0.25s;
+  margin: 20px;
+}
+.editBtn:hover {
+  color: #829CD0
+
 }
 
 .deleteBtn {
-  background-color: #f9f9f9;
-  font-weight: 500;
-  color: black;
-  text-decoration: inherit;
+  background-color: #6D6D6D;
+  color: #EBEBEB;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  cursor: pointer;
+  margin: 20px;
 }
 
 .deleteBtn:hover {
-  color: #535bf2;
+  color: #829CD0
 }
 
 .login-notice {
@@ -241,6 +263,8 @@ tbody tr:nth-child(odd) {
   align-items: center;
   justify-content: center;
 }
+
+
 
 
 @media (prefers-color-scheme: light) {

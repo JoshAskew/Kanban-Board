@@ -2,6 +2,12 @@ import { JwtPayload, jwtDecode } from 'jwt-decode';
 
 
 class AuthService {
+  timeoutCallback: () => void;
+
+  constructor(timeoutCallback: () => void) {
+    this.timeoutCallback = timeoutCallback; // Set the callback for session timeout
+    this.autoLogout();
+  }
   getProfile() {
     // TODO: return the decoded token
     const token = this.getToken();
@@ -50,8 +56,21 @@ class AuthService {
     localStorage.removeItem('id_token'); // Remove the token from localStorage
 
     // TODO: redirect to the login page
-    window.location.assign('/api/auth/login'); // Redirect to the login page
+    window.location.assign('/login'); // Redirect to the login page
+  }
+  autoLogout() {
+    const token = this.getToken();
+    if (!token) return;
+  
+    setInterval(() => {
+      if (this.isTokenExpired(token)) {
+        this.timeoutCallback();
+        this.logout();
+      }
+    }, 15000);
   }
 }
 
-export default new AuthService();
+export default new AuthService(() => {
+  alert("Session has timed out. Please log in again."); // Display a session timeout message
+});
