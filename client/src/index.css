@@ -24,7 +24,7 @@ input:-moz-placeholder {
 
 a {
   font-weight: 500;
-  color: #000000;
+  color: #EBEBEB;
   text-decoration: inherit;
 }
 a:hover {
@@ -99,7 +99,7 @@ tbody tr:nth-child(odd) {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: larger;
+  font-size: 30px;
   font-weight: 900;
 }
 
@@ -193,6 +193,7 @@ tbody tr:nth-child(odd) {
 #create-ticket-link {
   display: block;
   margin-left: auto;
+  margin-right: 30px;
 }
 
 
